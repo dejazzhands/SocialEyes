@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <link rel="stylesheet" href="sLayout.css">
+    <link rel="stylesheet" href="stylesheet.css">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400&display=swap" rel="stylesheet">
+    <title>SocialEyes</title>
+
+    <div id="header">
+        <div id="app_logo"></div>
+        <h2>Social<a style="font-weight: bold;">Eyes</a></h2>
+    </div>
+    <div id="body_content">
+        <h1>Socialising can be hard.</h1>
+        <h2>Use our app to learn how to do it.</h2>
+        <input type="text" class="input" placeholder="Ex. Shopping Centres" id="location_input">
+        <div id="button_container">
+            <div class="button" id="grocery_stores" style="background-image: url('pics/3de63018-c339-46db-879d-bba55faab641.jpeg');">
+                <h3>Shopping</h3>
+            </div>
+            <div class="button" id="resto" style="background-image: url('pics/maxresdefault.jpg');">
+                <h3>Restaurants</h3>
+            </div>
+        </div>
+    </div>
+
+    <div id="footer">
+        <h2>&copy; Social<a style="font-weight: bold;">Eyes</a> 2022</h2>
+    </div>
+
+    <script>
+            
+            //Make the search box in the home menu auto type for examples
+            var names = ["Shopping for groceries", "Eating with friends", "Buying an appliance", "Dining out with family"]
+
+            function newName(id, pos){
+                
+                var searchBox = document.getElementById("location_input");
+                var str = names[id];
+                var ex = "Ex. ";
+
+                if (pos > str.length){
+
+                    var newId = Math.floor(Math.random()*names.length);
+
+                    while (newId == id){
+                        newId = Math.floor(Math.random()*names.length);
+                    }
+                    
+                    setTimeout(function(){
+                        newName(newId + 0, 0);
+                    }, 3000);
+                    
+                    return;
+
+                }
+
+                setTimeout(function(){
+
+                    searchBox.placeholder = ex + str.slice(0, pos);
+                    pos = pos+1;
+                    newName(id, pos);
+
+                }, (Math.random()*130)+25);
+
+            }
+
+            newName(Math.floor(Math.random()*names.length)+0, 0);
+
+            document.getElementById("resto").onclick = function(){
+                window.location = "dining/"
+            }
+
+            document.getElementById("grocery_stores").onclick = function(){
+                window.location = "shopping/"
+            }
+
+
+    </script>
+
+</html>

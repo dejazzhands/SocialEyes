@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <link rel="stylesheet" href="sLayout.css">
+    <link rel="stylesheet" href="stylesheet.css">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400&display=swap" rel="stylesheet">
+    <script src="jquery.min.js"></script>
+    <title>SocialEyes</title>
+
+    <div id="header">
+        <div id="app_logo"></div>
+    </div>
+    <div id="body_content">
+        <audio id="audio">
+            <source src="sound.mp3" type="audio/mp3">
+        </audio>
+        <h1>Dining Out</h1>
+        <div id="definition_logo"></div>
+        <div id="definition">
+            <h3>Definition</h3>
+            <h4>"to dine away from home, esp in a restaurant. (foll by on) to have dinner at the expense of someone else mainly for the sake of one's knowledge or conversation about (a subject or story)"</h4>
+        </div>
+        <div id="location_contents">
+            <h2>Start the steps diagram</h2>
+        </div>
+        <div id="step_0" class="step">
+            Start
+        </div>
+        <div id="step_1" class="step">
+            Decide on a place to eat. Enter the building: leave the door open if other people walk in with you
+        </div>
+        <div id="step_2" class="step">
+           Ask for a seat, or sit anywhere you like if it's free seating.
+        </div>
+        <div id="step_3" class="step">
+            Order directly at the register, saying the order name and number on the menu. A cashier will take your order and process your payment before food is served.
+        </div>
+        <div id="step_4" class="step">
+            Wait for the food to be ready. It is usually placed in a pickup area close to the kitchen, and someone would call out your order.
+        </div>
+        <div id="step_5" class="step">
+            Eat your food once you bring it to a table.
+        </div>
+        <div id="step_6" class="step">
+            Once you are finished, make sure to clean up after yourself, putting plates in the used tray and sorting out waste in the trash bin.
+        </div>
+        <div id="step_7" class="step">
+            Leave the diner once you are ready.
+        </div>
+        <div id="step_8" class="finish">
+            That's it! Thanks for using SocialEyes. We hope this diagram could help you!
+        </div>
+    </div>
+
+    <script>
+        $("#step_0").fadeIn();
+
+        for (var i = 0; i < 10; i++){
+            
+            if (i == 9) break;
+
+            console.log("Adding event listener to step_" + i);
+            addlistner(i);
+
+        }
+
+        function addlistner(i){
+            document.getElementById("step_" + i).addEventListener("click", function(){
+
+                $("#step_" + i).addClass("complete");
+
+                document.getElementById("audio").play();
+
+                $("#step_" + (i+1)).fadeIn();
+                
+                console.log("#step_"+ i+ " clicked, fading in #step_" + (i+1));
+                document.getElementById("step_" + (i+1)).scrollIntoView();
+
+            });
+        }
+    </script>
+
+</html>

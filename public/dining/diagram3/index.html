@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- dining with family -->
+    <link rel="stylesheet" href="sLayout.css">
+    <link rel="stylesheet" href="stylesheet.css">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400&display=swap" rel="stylesheet">
+    <script src="jquery.min.js"></script>
+    <title>SocialEyes</title>
+
+    <div id="header">
+        <div id="app_logo"></div>
+    </div>
+    <div id="body_content">
+        <audio id="audio">
+            <source src="sound.mp3" type="audio/mp3">
+        </audio>
+        <h1>Dining Out</h1>
+        <div id="definition_logo"></div>
+        <div id="definition">
+            <h3>Definition</h3>
+            <h4>"to dine away from home, esp in a restaurant. (foll by on) to have dinner at the expense of someone else mainly for the sake of one's knowledge or conversation about (a subject or story)"</h4>
+        </div>
+        <div id="location_contents">
+            <h2>Start the steps diagram</h2>
+        </div>
+        <div id="step_0" class="step">
+            Start
+        </div>
+        <div id="step_1" class="step">
+            If a family member is hosting a dinner party, make sure to bring a gift for the host. A bottle of wine or a bouquet of flowers is a good idea.
+        </div>
+        <div id="step_2" class="step">
+            Give your present to the host when they first greet you. Ask them to be seated.
+        </div>
+        <div id="step_3" class="step">
+            Take note of the relatives seated close to you so you can decide on appropriate conversation topics. For example, discuss school and toys 
+            with little children and steer clear of explicit material.
+        </div>
+        <div id="step_4" class="step">
+            Once everyone is present, the food would be ready and the host would motion the guests to eat. 
+        </div>
+        <div id="step_5" class="step">
+            There are no set etiquette for family dinners, because it varies with different hosts. 
+            However, it is important to not chew with your mouth open and not interrupt others when they are speaking.
+        </div>
+        <div id="step_6" class="step">
+            In conversation, set boundaries around what questions you are comfortable answering. You can opt not to speak,
+            divert the subject, or simply say "I don't want to talk about it."
+        </div>
+        <div id="step_7" class="step">
+            Make sure that you've greeted every relative before the dinner ends, to signify that you acknowledge every member of the family. Thank the host
+            for preparing the meal and planning the party, and compliment their food regardless of how you feel about it. 
+        </div>
+        <div id="step_8" class="finish">
+            That's it! Thanks for using SocialEyes. We hope this diagram could help you!
+        </div>
+    </div>
+
+    <script>
+        $("#step_0").fadeIn();
+
+        for (var i = 0; i < 10; i++){
+            
+            if (i == 9) break;
+
+            console.log("Adding event listener to step_" + i);
+            addlistner(i);
+
+        }
+
+        function addlistner(i){
+            document.getElementById("step_" + i).addEventListener("click", function(){
+
+                $("#step_" + i).addClass("complete");
+
+                document.getElementById("audio").play();
+
+                $("#step_" + (i+1)).fadeIn();
+                
+                console.log("#step_"+ i+ " clicked, fading in #step_" + (i+1));
+                document.getElementById("step_" + (i+1)).scrollIntoView();
+
+            });
+        }
+    </script>
+
+</html>

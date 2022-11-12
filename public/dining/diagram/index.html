@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <link rel="stylesheet" href="sLayout.css">
+    <link rel="stylesheet" href="stylesheet.css">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400&display=swap" rel="stylesheet">
+    <script src="jquery.min.js"></script>
+    <title>SocialEyes</title>
+
+    <div id="header">
+        <div id="app_logo"></div>
+    </div>
+    <div id="body_content">
+        <audio id="audio">
+            <source src="sound.mp3" type="audio/mp3">
+        </audio>
+        <h1>Dining Out</h1>
+        <div id="definition_logo"></div>
+        <div id="definition">
+            <h3>Definition</h3>
+            <h4>"to dine away from home, esp in a restaurant. (foll by on) to have dinner at the expense of someone else mainly for the sake of one's knowledge or conversation about (a subject or story)"</h4>
+        </div>
+        <div id="location_contents">
+            <h2>Start the steps diagram</h2>
+        </div>
+        <div id="step_0" class="step">
+            Start
+        </div>
+        <div id="step_1" class="step">
+            Enter the building: leave the door open if other people walk in with you
+        </div>
+        <div id="step_2" class="step">
+            Approach a staff member (waiter or waitress) and ask for a seat
+        </div>
+        <div id="step_3" class="step">
+            When the staff member gives you the menu, look for a food you want to eat and a drink to go with it
+        </div>
+        <div id="step_4" class="step">
+            Raise your hand to get a staff member's attention. Tell them what food and drink you want
+        </div>
+        <div id="step_5" class="step">
+            Eat your food once the staff bring it to your table
+        </div>
+        <div id="step_6" class="step">
+            Raise your hand to ask for the bill
+        </div>
+        <div id="step_7" class="step">
+            Give your CREDIT or DEBIT card if you want to pay with a card. Alternatively, give the staff member the amount of money they asked for. Remember to say THANK YOU
+        </div>
+        <div id="step_8" class="step">
+            Walk towards the door after you paid. Don't forget to open the door for other people to be polite
+        </div>
+        <div id="step_9" class="finish">
+            That's it! Thanks for using SocialEyes. We hope this diagram could help you!
+        </div>
+    </div>
+
+    <script>
+        $("#step_0").fadeIn();
+
+        for (var i = 0; i < 10; i++){
+            
+            if (i == 9) break;
+
+            console.log("Adding event listener to step_" + i);
+            addlistner(i);
+
+        }
+
+        function addlistner(i){
+            document.getElementById("step_" + i).addEventListener("click", function(){
+
+                $("#step_" + i).addClass("complete");
+
+                document.getElementById("audio").play();
+
+                $("#step_" + (i+1)).fadeIn();
+                
+                console.log("#step_"+ i+ " clicked, fading in #step_" + (i+1));
+                document.getElementById("step_" + (i+1)).scrollIntoView();
+
+            });
+        }
+    </script>
+
+</html>

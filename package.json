@@ -1,0 +1,16 @@
+{
+  "name": "steel_city_hacks_submission",
+  "homepage": ".",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.2",
+    "jshashes": "^1.0.8",
+    "react-scripts": "^5.0.1",
+    "socket.io": "^4.4.1"
+  }
+}

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <link rel="stylesheet" href="sLayout.css">
+    <link rel="stylesheet" href="stylesheet.css">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400&display=swap" rel="stylesheet">
+    <script src="jquery.min.js"></script>
+    <title>SocialEyes</title>
+
+    <div id="header">
+        <div id="app_logo"></div>
+    </div>
+    <div id="body_content">
+        <audio id="audio">
+            <source src="sound.mp3" type="audio/mp3">
+        </audio>
+        <h1>Dining out</h1>
+        <div id="definition_logo"></div>
+        <div id="definition">
+            <h3>Definition</h3>
+            <h4>"to dine away from home, esp in a restaurant. (foll by on) to have dinner at the expense of someone else mainly for the sake of one's knowledge or conversation about (a subject or story)"</h4>
+        </div>
+        <div id="location_contents">
+            <h2>Start the steps diagram</h2>
+        </div>
+        <div id="step_0" class="step">
+            Start
+        </div>
+        <div id="step_1" class="step">
+            Make sure you and your friends have agreed on a time and place to dine out. 
+        </div>
+        <div id="step_2" class="step">
+            If you are going by yourself, arrive earlier and check for a table reservation under the group's name with the host.
+        </div>
+        <div id="step_3" class="step">
+            Once everyone is seated and present, ask if everyone is ordering separately. If not, a member of the group will usually order large dishes to share, and you must go along with their choice. Otherwise, you can order as you please, waiting your turn.
+        </div>
+        <div id="step_4" class="step">
+            Engage in conversation while waiting for food to arrive. Safe topics to discuss revolve around what the friend group have in common (for example, funny dorm experiences with college friends.)
+        </div>
+        <div id="step_5" class="step">
+            Once the food is ready, start eating when everybody else does. Display proper table manners and do not talk while chewing. 
+        </div>
+        <div id="step_6" class="step">
+            Try giving compliments about the food you are eating. This will prompt a conversation where everyone shares their opinions about the food, and shows your gratefulness to the person paying the bill if you are eating what they ordered.
+        </div>
+        <div id="step_7" class="step">
+            If the group decided on splitting the bill, pay your share in full. Otherwise, thank the person who paid for the table and remind yourself to repay them with a similar favor another time.
+        </div>
+        <div id="step_8" class="finish">
+            That's it! Thanks for using SocialEyes. We hope this diagram could help you!
+        </div>
+    </div>
+
+    <script>
+        $("#step_0").fadeIn();
+
+        for (var i = 0; i < 10; i++){
+            
+            if (i == 9) break;
+
+            console.log("Adding event listener to step_" + i);
+            addlistener(i);
+
+        }
+
+        function addlistener(i){
+            document.getElementById("step_" + i).addEventListener("click", function(){
+
+                $("#step_" + i).addClass("complete");
+
+                document.getElementById("audio").play();
+
+                $("#step_" + (i+1)).fadeIn();
+                
+                console.log("#step_"+ i+ " clicked, fading in #step_" + (i+1));
+                document.getElementById("step_" + (i+1)).scrollIntoView();
+
+            });
+        }
+    </script>
+
+</html>
